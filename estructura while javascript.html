@@ -1,0 +1,21 @@
+<html>
+<head>
+	<script type="text/javascript">
+		function contarCaracteres(){
+			var a = String(document.getElementById("cadena").value),
+			b, cont=0;
+
+			b= a.charAt(cont);
+			while("." !== b){
+				cont++;
+				b=a.charAt(cont);
+			}
+			alert("la cantidad de caracteres antes del punto es de "+cont);
+		}
+	</script>
+</head>
+<body>
+<span>Ingrese una cadena que contenga "." y le dire cuantas letras hay hasta el</span><input id="cadena" type="text"/>
+<button onClick="contarCaracteres()">Calcular</button>
+</body>
+</html>
