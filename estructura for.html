@@ -1,0 +1,32 @@
+<html>
+<head>
+<script type="text/javascript">
+var cara, frec1=0, frec2=0, frec3=0, frec4=0, frec5=0,frec6=0;
+for (var i=1; i <= 6000; i++){
+	cara = 1+Math.random()*5;
+	cara=Math.round(cara);
+	switch(cara){
+		case 1: frec1++;
+				break;
+		case 2: frec2++;
+				break;
+		case 3: frec3++;
+				break;
+		case 4: frec4++;
+				break;
+		case 5: frec5++;
+				break;
+		case 6: frec6++;
+				break;
+	}
+}
+
+document.write("<p>Cara 1 Frecuencia:"+frec1+"</p>");
+document.write("<p>Cara 2 Frecuencia:"+frec2+"</p>");
+document.write("<p>Cara 3 Frecuencia:"+frec3+"</p>");
+document.write("<p>Cara 4 Frecuencia:"+frec4+"</p>");
+document.write("<p>Cara 5 Frecuencia:"+frec5+"</p>");
+document.write("<p>Cara 6 Frecuencia:"+frec6+"</p>");
+</script>
+</head>
+</html>
