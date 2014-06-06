@@ -1,0 +1,24 @@
+<html>
+<head>
+<script type="text/javascript">
+var promedio,
+   myArray= new Array(31); //0..30
+
+for(var i = 0; i < 31; i++){
+	myArray[i] = -3 + Math.random()* 55;
+	document.write("El dia "+(i+1)+" la temperatura fue de "+myArray[i].toFixed(1)+" <br/>");
+}
+
+promedio = 0;
+
+for(var i=0; i < 31; i++){
+	promedio+= myArray[i];
+}
+
+document.write("<br/><br/>La temperatura promedio fue de: "+(promedio/31).toFixed(1));
+
+</script>
+
+</script>
+</head>
+</html>
