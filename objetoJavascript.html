@@ -1,0 +1,36 @@
+<html>
+<head>
+<script type="text/javascript">
+	var personaje1 = new Character("Mario", 100, 200);
+	var personaje2 = new Character("Luigi", 150, 200);
+	
+	function Character(name, posX, posY){
+		this.name= name;
+		this.posX = posX;
+		this.posY = posY;
+
+		this.moveX = function(){
+			this.posX++;
+		}
+
+		this.moveY = function(){
+			this.posY++;
+		}
+	}
+
+	alert("Nombre = "+personaje1.name+" posicion X = "+personaje1.posX+" posicion y = "+personaje1.posY);
+
+	Character.prototype.lifeLevel=0;
+	personaje1.lifeLevel =100;
+	
+
+	Character.prototype.jump = function (){
+		this.posY +=20;
+	}
+
+	personaje1.jump();
+	alert("posicion  Ypersonaje1 "+personaje1.posY);
+	
+</script>
+</head>
+</html>
