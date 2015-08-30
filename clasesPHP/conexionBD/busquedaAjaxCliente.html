@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="estilo.css">
+<script src="./jquery-1.11.3.js"></script>
+<script type="text/javascript">
+		function searchClient(str) {
+			console.log(str);
+	    if (str.length == 0) { 
+	        document.getElementById("txtHint").innerHTML = "";
+	        return;
+	    } else {
+	        var xmlhttp = new XMLHttpRequest();
+	        xmlhttp.onreadystatechange = function() {
+	            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+	          		var response = JSON.parse(xmlhttp.responseText);
+	          		console.log("respuesta "+response);
+	          		if(response == null){
+	          			$("#error").text("Error, no existe el cliente");
+	          			$("#error").show();
+	          		}else{
+	          			$("#nombre").val(response['nombre']);
+		          		$("#telefono").val(response['telefono']);
+		          		$("#mail").val(response['mail']);
+	          		}
+
+	          		
+	            }
+	        }
+	        xmlhttp.open("GET", "busquedaAjax.php?q=" + str, true);
+	        xmlhttp.send();
+	    }
+	}
+
+		function searchByAjax(str){
+			console.log("param "+str);
+			$.ajax(
+				{
+					method:"GET",
+					url:"busquedaAjax.php",
+					data:{q: str}
+				}
+				).done(
+				function(response){
+					response = JSON.parse(response);
+	          		if(response == null){
+	          			$("#error").text("Error, no existe el cliente");
+	          			$("#error").show();
+	          		}else{
+	          			$("#nombre").val(response['nombre']);
+		          		$("#telefono").val(response['telefono']);
+		          		$("#mail").val(response['mail']);
+	          		}
+				}
+			).fail(
+				function(){
+					$("#error").text("Hubo un error en la obtencion de los datos");
+	          		$("#error").show();
+				}
+			);
+		}
+
+
+
+$(document).ready(function() {
+ 
+	 $("#error").hide();
+	 $("#busqueda").on("click", function(){
+	 	$("#nombre").val("");
+	 	$("#telefono").val("");
+	 	$("#mail").val("");
+	 	searchByAjax($("#id").val());
+	 });
+
+});
+</script>
+
+
+</head>
+<body>
+
+<p>Ingrese el id del cliente: <input type ="text" name="id" id="id"/>
+<button id="busqueda">Buscar</button>
+</p>
+<p id="error" class="error"></p>
+<br/>
+<br/>
+<table>
+	<tr>
+		<td>Nombre: </td>
+		<td><input type ="text" name="nombre" id="nombre"/></td>
+	</tr>
+	<tr>
+		<td>Telefono: </td>
+		<td><input type ="text" name="telefono" id="telefono"/></td>
+	</tr>
+	<tr>
+		<td>Mail: </td>
+		<td><input type ="text" name="mail" id="mail"/></td>
+	</tr>
+</table>
+</body>
+</html>
