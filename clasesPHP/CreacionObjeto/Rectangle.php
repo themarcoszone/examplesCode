@@ -20,10 +20,6 @@ class Rectangle{
 		printf("Area ".($this->height * $this->width)." xPos = ".$this->x." yPos = ".$this->y."<br/>");
 	}
 
-	public function prueba($x){
-		echo "valor de height ".$x->height;
-	}
-	
 }
 
 ?>
