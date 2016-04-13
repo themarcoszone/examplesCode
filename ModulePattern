@@ -1,0 +1,40 @@
+<html>
+<head>
+<script type="text/javascript">
+var personaje=(function (){
+    var xPos = 0;
+    
+    function moveSlow(){
+        xPos++;
+    }
+
+    function moveFast(){
+        xPos +=10;
+    }
+
+    return{
+       move:function (charTye){
+            if (charTye === "basic"){
+                moveSlow();
+            }else if(charTye === "super"){
+                moveFast();
+            }
+        },
+
+        getXPos:function (){
+            return xPos;
+        }
+
+    }
+})();
+
+personaje.move("basic");
+console.log(personaje.getXPos()); //1
+personaje.move("super");
+console.log(personaje.getXPos()); //11
+
+personaje.moveSlow(); //Error: personaje.moveSlow is not a function
+console.log(personaje.getXPos()); //No muestra nada
+</script>
+</head>
+</html>

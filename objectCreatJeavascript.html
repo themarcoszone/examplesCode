@@ -1,0 +1,32 @@
+<html>
+<head>
+<script type="text/javascript">
+	var personaje1 = new Character("Mario", 100, 200);
+
+	function Character(name, posX, posY){
+		this.name= name;
+		this.posX = 100;
+		this.posY = 100;
+
+		this.moveX = function(){
+			this.posX++;
+		}
+
+		this.moveY = function(){
+			this.posY++;
+		}
+	}
+	Character.prototype.lifeLevel = 100;
+	var personaje2 = Object.create(Character.prototype);
+	alert(personaje2.posX);
+	alert(personaje2.lifeLevel);
+
+	var personaje3 = Object.create(Character.prototype,{
+		poder:{writable:true, value:"lanzallamas"}
+	})
+
+	alert(personaje2.poder);
+	alert(personaje3.poder);
+</script>
+</head>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+	<script type="text/javascript">
+		//1,1,2,3,5,8,13,21...
+		function fibonacci(){
+			var fibo1=1, fibo2=1, pos=1,
+			num= parseInt(document.getElementById("numero").value);
+
+			while(num > fibo1 && num > fibo2){
+				if(fibo1 < fibo2){
+					fibo1 += fibo2;
+				}
+				else{
+					fibo2 += fibo1;
+				}
+				pos++;
+			}
+
+			if(num == fibo1 || num == fibo2){
+				alert("El numero "+num+" pertenece a la sucesion y se encuentra en la "
+					+" posicion "+(pos+1));
+			}
+			else{
+				alert("El numero "+num+" no pertenece a la sucesion Fibonacci");
+			}
+
+		}
+	</script>
+</head>
+<body>
+<span> Introduzca un numero para comprobar si pertenece a la serie</span>
+<input id="numero"/>
+<button onClick="fibonacci()">Calcular</button>
+</body>
+</html>
